@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+
+    <script src="angular.min.js"></script>
+    <script src="JavaScript.js"></script>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+
+
+Search: <input type="text" placeholder="Search name"  ng-model="searchText.name" />
+        <input type="text" placeholder="Search last name" ng-model="searchText.lastName" />
+        <input type="text" placeholder="Search city" ng-model="searchText.city" />
+        <input type="checkbox" ng-model="hideSalary" />hide salary
+<br />
+<br />
+
+<table>
+    <thead>
+<tr>
+    <th>Name</th>
+    <th>Last Name</th>
+    <th>City</th>
+    <th>Gender</th>
+    <th ng-hide="hideSalary">Salary</th>
+    <tbody>
+<tr ng-repeat="employee in employees| filter:searchText">
+
+    <td>{{employee.name}}</td>
+    <td>{{employee.lastName}}</td>
+    <td>{{employee.city}}</td>
+    <td>{{employee.gender}}</td>
+    <td ng-hide="hideSalary">{{employee.salary}}</td>
+
+    
+
+
+</tr>
+
+    </tbody>
+
+</tr>
+
+    </thead>
+
+</table>
+
+    </div>
+
+</body>
+</html>
